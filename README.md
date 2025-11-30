@@ -1,8 +1,12 @@
-# 🚀 Premium Workflow Builder
+# 🚀 AceFlow - Premium Workflow Builder
 
 A beautiful, modern workflow builder powered by React Flow and Google's Gemini AI. Create powerful automation workflows with an intuitive drag-and-drop interface.
 
-![Workflow Builder](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
+## 🌟 Live Demo
+
+**Try it now**: [https://aceflowdeploy.vercel.app/](https://aceflowdeploy.vercel.app/)
+
+![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
 ![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-38B2AC?style=for-the-badge&logo=tailwind-css)
@@ -243,6 +247,140 @@ API → AI Agent → Output
 - **Cause**: Browser compatibility
 - **Solution**: Use latest version of Chrome, Firefox, or Edge
 
+## 🌐 Deploying to Vercel
+
+Vercel is the recommended platform for deploying Next.js applications. It's **completely free** for personal projects!
+
+### Prerequisites for Deployment
+
+1. **GitHub Account** - [Sign up free](https://github.com/signup)
+2. **Vercel Account** - [Sign up free](https://vercel.com/signup)
+3. Your project code pushed to GitHub
+
+### Step 1: Push Your Code to GitHub
+
+If you haven't already pushed your code to GitHub:
+
+#### Option A: Using GitHub Desktop (Easiest)
+1. Download [GitHub Desktop](https://desktop.github.com/)
+2. Install and sign in with your GitHub account
+3. Click **"Add"** → **"Add Existing Repository"**
+4. Navigate to `C:\Users\nikhi\Desktop\aceada2`
+5. Click **"Create Repository"** on GitHub.com
+6. Name it (e.g., `aceflow`)
+7. Click **"Publish repository"**
+
+#### Option B: Using Command Line
+```bash
+# Navigate to your project
+cd C:\Users\nikhi\Desktop\aceada2
+
+# Initialize git (if not already done)
+git init
+
+# Add all files
+git add .
+
+# Commit files
+git commit -m "Initial commit"
+
+# Create a new repository on GitHub.com first, then:
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+
+# Push to GitHub
+git push -u origin main
+```
+
+### Step 2: Deploy to Vercel
+
+#### Quick Deploy (Recommended)
+
+1. **Go to Vercel**
+   - Visit [vercel.com](https://vercel.com)
+   - Click **"Sign Up"** or **"Log In"**
+   - Choose **"Continue with GitHub"**
+
+2. **Import Your Project**
+   - Click **"Add New..."** → **"Project"**
+   - Authorize Vercel to access your GitHub repositories
+   - Find your `aceflow` repository
+   - Click **"Import"**
+
+3. **Configure Project**
+   - **Framework Preset**: Next.js (auto-detected)
+   - **Root Directory**: ./
+   - **Build Command**: `npm run build` (auto-filled)
+   - **Output Directory**: `.next` (auto-filled)
+   - **Install Command**: `npm install` (auto-filled)
+
+4. **Deploy**
+   - Click **"Deploy"**
+   - Wait 2-3 minutes for the build to complete
+   - 🎉 Your app is live!
+
+### Step 3: Access Your Live App
+
+After deployment:
+1. Vercel will show you a **live URL** (e.g., `aceflow.vercel.app`)
+2. Click the URL to open your deployed app
+3. Share this URL with anyone!
+
+**Example Live Demo**: [https://aceflowdeploy.vercel.app/](https://aceflowdeploy.vercel.app/)
+
+### Auto-Deployments
+
+Once connected, Vercel will automatically:
+- ✅ Deploy when you push to the `main` branch
+- ✅ Create preview deployments for pull requests
+- ✅ Show build logs and errors
+- ✅ Provide free SSL/HTTPS
+- ✅ Offer global CDN distribution
+
+### Custom Domain (Optional)
+
+To use your own domain:
+1. Go to your project on Vercel
+2. Click **"Settings"** → **"Domains"**
+3. Enter your domain name
+4. Follow the DNS configuration instructions
+
+### Environment Variables (If Needed in Future)
+
+If you ever need to add environment variables:
+1. Go to **"Settings"** → **"Environment Variables"**
+2. Add your variables
+3. Redeploy the application
+
+**Note**: Currently, API keys are entered directly in the UI, so no environment variables are needed for this project.
+
+### Troubleshooting Deployment
+
+#### Build Fails
+- **Check Build Logs**: Vercel shows detailed error messages
+- **Common Issues**:
+  - Missing dependencies: Run `npm install` locally first
+  - TypeScript errors: Fix any errors shown in logs
+  - Build timeout: Usually resolves on retry
+
+#### App Doesn't Load
+- **Clear browser cache** and hard refresh (Ctrl + Shift + R)
+- **Check Vercel deployment logs** for runtime errors
+- **Verify all dependencies** are in `package.json`
+
+#### "Function Too Large" Error
+- Next.js apps are under 50MB by default
+- This app is well under the limit
+- If it happens, check for large files in your repository
+
+### Vercel Dashboard Features
+
+After deployment, you can:
+- 📊 **View Analytics** - See visitor stats
+- 🔍 **Monitor Performance** - Check load times
+- 📝 **View Logs** - Real-time function logs
+- 🔄 **Rollback** - Revert to previous deployments
+- 🌍 **Multiple Environments** - Production, preview, development
+
 ## 📝 Development
 
 ### Build for Production
@@ -271,10 +409,12 @@ This project is open source and available for personal and educational use.
 - **Google Gemini AI** - For providing free AI capabilities
 - **ReactFlow** - For the excellent workflow visualization library
 - **shadcn/ui** - For beautiful UI components
-- **Vercel** - For Next.js framework
+- **Vercel** - For Next.js framework and free hosting
 
 ---
 
 **Built with ❤️ using Next.js and Gemini AI**
+
+**Live Demo**: [https://aceflowdeploy.vercel.app/](https://aceflowdeploy.vercel.app/)
 
 For questions or issues, please check the troubleshooting section above.
