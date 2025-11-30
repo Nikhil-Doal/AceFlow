@@ -91,6 +91,11 @@ export const useWorkflowStore = create<WorkflowState>((set, get) => ({
         const { nodes, edges } = get();
         localStorage.setItem('workflow-nodes', JSON.stringify(nodes));
         localStorage.setItem('workflow-edges', JSON.stringify(edges));
+
+        // Dynamic import to avoid SSR issues
+        import('sonner').then(({ toast }) => {
+            toast.success('Workflow saved to browser storage!');
+        });
     },
 
     loadWorkflow: () => {
@@ -100,6 +105,16 @@ export const useWorkflowStore = create<WorkflowState>((set, get) => ({
             set({
                 nodes: JSON.parse(nodes),
                 edges: JSON.parse(edges),
+            });
+
+            // Dynamic import to avoid SSR issues
+            import('sonner').then(({ toast }) => {
+                toast.success('Workflow loaded from browser storage!');
+            });
+        } else {
+            // Dynamic import to avoid SSR issues
+            import('sonner').then(({ toast }) => {
+                toast.error('No saved workflow found in browser storage');
             });
         }
     },

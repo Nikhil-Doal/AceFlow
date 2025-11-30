@@ -1,7 +1,6 @@
 import React, { memo, useState } from 'react';
 import { Handle, Position } from 'reactflow';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { WorkflowNodeData } from '@/lib/types';
 import { FileText, Copy, Check, Download, Eye, Code } from 'lucide-react';
 
@@ -68,7 +67,7 @@ const OutputNode = memo(({ data }: OutputNodeProps) => {
     return (
         <div className="relative">
             {hasValue && (
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 rounded-xl blur-xl opacity-40 animate-pulse" />
+                <div className="absolute inset-0 bg-gradient-to-r from-orange500 via-amber-500 to-yellow-500 rounded-xl blur-xl opacity-40 animate-pulse" />
             )}
 
             <Card className={`
@@ -149,8 +148,8 @@ const OutputNode = memo(({ data }: OutputNodeProps) => {
                         )}
                     </div>
 
-                    <div className="rounded-lg bg-black/40 border border-orange-500/30 p-3" style={{ touchAction: 'pan-y' }}>
-                        <ScrollArea className="h-52 w-full">
+                    <div className="rounded-lg bg-black/40 border border-orange-500/30 p-3">
+                        <div className="max-h-52 overflow-y-auto nodrag scrollbar-thin scrollbar-thumb-orange-500/30 scrollbar-track-transparent">
                             {hasValue ? (
                                 <pre className="text-xs font-mono leading-relaxed">
                                     <code style={{
@@ -192,7 +191,7 @@ const OutputNode = memo(({ data }: OutputNodeProps) => {
                                     </div>
                                 </div>
                             )}
-                        </ScrollArea>
+                        </div>
                     </div>
 
                     {hasValue && (
