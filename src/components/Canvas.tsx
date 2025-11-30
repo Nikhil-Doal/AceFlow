@@ -15,12 +15,14 @@ import { useWorkflowStore } from '@/lib/store';
 import InputNode from './nodes/InputNode';
 import APINode from './nodes/APINode';
 import OutputNode from './nodes/OutputNode';
+import AIAgentNode from './nodes/AIAgentNode';
 import { NodeType } from '@/lib/types';
 
 const nodeTypes: NodeTypes = {
     input: InputNode,
     api: APINode,
     output: OutputNode,
+    'ai-agent': AIAgentNode,
 };
 
 const CanvasContent = () => {

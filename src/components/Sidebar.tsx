@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { NodeType } from '@/lib/types';
-import { FileInput, Server, FileOutput } from 'lucide-react';
+import { FileInput, Server, FileOutput, Bot } from 'lucide-react';
 
 const Sidebar = () => {
     const onDragStart = (event: React.DragEvent, nodeType: NodeType) => {
@@ -35,6 +35,15 @@ const Sidebar = () => {
                 >
                     <Server className="w-4 h-4 text-blue-500" />
                     <span className="text-sm font-medium">API Node</span>
+                </div>
+
+                <div
+                    className="flex items-center gap-2 p-3 border rounded-md cursor-grab hover:bg-accent transition-colors"
+                    onDragStart={(event) => onDragStart(event, 'ai-agent')}
+                    draggable
+                >
+                    <Bot className="w-4 h-4 text-purple-500" />
+                    <span className="text-sm font-medium">AI Agent Node</span>
                 </div>
 
                 <div

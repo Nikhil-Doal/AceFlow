@@ -37,15 +37,24 @@ export const useWorkflowStore = create<WorkflowState>((set, get) => ({
 
     addNode: (type: NodeType, position: { x: number; y: number }) => {
         const id = uuidv4();
+
+        const initialData: any = {
+            label: type.charAt(0).toUpperCase() + type.slice(1) + ' Node',
+            type,
+            value: null,
+        };
+
+        if (type === 'api') {
+            initialData.apiUrl = 'https://catfact.ninja/fact';
+        } else if (type === 'ai-agent') {
+            initialData.model = 'gemini-2.5-flash';
+        }
+
         const newNode: Node = {
             id,
             type,
             position,
-            data: {
-                label: type.charAt(0).toUpperCase() + type.slice(1) + ' Node',
-                type,
-                value: null
-            },
+            data: initialData,
         };
 
         set({

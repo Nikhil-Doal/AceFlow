@@ -85,6 +85,30 @@ export async function executeWorkflow(
                 const response = await fetch(node.data.apiUrl);
                 if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
                 outputData = await response.json();
+            } else if (node.type === 'ai-agent') {
+                if (!node.data.apiKey) {
+                    throw new Error('Please enter your Google API key to use the AI Agent');
+                }
+
+                // Dynamic import to avoid SSR issues
+                const { GoogleGenerativeAI } = await import('@google/generative-ai');
+                const genAI = new GoogleGenerativeAI(node.data.apiKey);
+
+                // Use the selected model or default to gemini-2.5-flash
+                const modelName = node.data.model || 'gemini-2.5-flash';
+                const model = genAI.getGenerativeModel({ model: modelName });
+
+                const prompt = typeof inputData === 'string'
+                    ? inputData
+                    : JSON.stringify(inputData);
+
+                if (!prompt || prompt === 'null') {
+                    throw new Error('No input provided. Please connect an Input node to the AI Agent');
+                }
+
+                const result = await model.generateContent(prompt);
+                const response = await result.response;
+                outputData = response.text();
             } else if (node.type === 'output') {
                 outputData = inputData; // Output node just displays input
             }
@@ -94,7 +118,8 @@ export async function executeWorkflow(
             nodeDataMap.set(nodeId, { ...nodeDataMap.get(nodeId), value: outputData });
 
         } catch (error: any) {
-            updateNodeData(nodeId, { isProcessing: false, error: error.message });
+            const errorMessage = error.message || 'An unknown error occurred';
+            updateNodeData(nodeId, { isProcessing: false, error: errorMessage });
             throw error; // Stop execution on error
         }
     }

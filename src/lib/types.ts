@@ -1,6 +1,6 @@
 import { Edge, Node, OnNodesChange, OnEdgesChange, OnConnect } from 'reactflow';
 
-export type NodeType = 'input' | 'api' | 'output';
+export type NodeType = 'input' | 'api' | 'output' | 'ai-agent';
 
 export interface WorkflowNodeData {
     label: string;
