@@ -62,7 +62,7 @@ The AI Agent node requires a Google Gemini API key. Here's how to get one for **
 # If you have the project as a zip, extract it
 # Or if using git:
 git clone <repository-url>
-cd aceada2
+cd AceFlow
 ```
 
 ### 2. Install Dependencies
@@ -265,7 +265,7 @@ If you haven't already pushed your code to GitHub:
 1. Download [GitHub Desktop](https://desktop.github.com/)
 2. Install and sign in with your GitHub account
 3. Click **"Add"** → **"Add Existing Repository"**
-4. Navigate to `C:\Users\nikhi\Desktop\aceada2`
+4. Navigate to `AceFlow`
 5. Click **"Create Repository"** on GitHub.com
 6. Name it (e.g., `aceflow`)
 7. Click **"Publish repository"**
@@ -273,7 +273,7 @@ If you haven't already pushed your code to GitHub:
 #### Option B: Using Command Line
 ```bash
 # Navigate to your project
-cd C:\Users\nikhi\Desktop\aceada2
+cd AceFlow
 
 # Initialize git (if not already done)
 git init
